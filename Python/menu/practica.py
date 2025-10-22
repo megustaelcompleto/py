@@ -15,13 +15,14 @@ while True:
     match opcion:
         case "1":
             #Agregar registro
+            print("")
             run       = input("Ingrese su RUN : ")
             nombre    = input("Ingrese su Nombre : ")
             curso     = input("Ingrese su Curso : ")
             
             c = 0
             print("Agrege 4 notas : ")
-            for i in range(4):    #SERIA MEJOR USAR UN WHILE TRUE? INTENTARLO
+            for i in range(4):
                 notas = float(input())
                 c = notas + c
                 if notas < 2 or notas > 7:
@@ -32,8 +33,10 @@ while True:
             if promedio >= 4:
                 estado = "APROBADO"
             else:
-                estado = "DESAPROBADO"                  
-            if curso == "" or nombre == "" or run == "" or c == 0:   #ESTA LINEA NO FUNCIONA BIEN NO SE POR QUE
+                estado = "DESAPROBADO"
+            if c == 0:
+                break
+            if curso == "" or nombre == "" or run == "":
                 print("")
                 print("NO debe ingresar datos en blanco...")
                 break
@@ -97,7 +100,9 @@ while True:
         case "4":
             print("")
             print("Visualizar registro")
-            print(registros)
+            print("")
+            for persona in registros:
+                print(persona)
             print("")
         case "5":
             break
